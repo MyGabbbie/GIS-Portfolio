@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eleyele Reservoir — Vegetation Encroachment &amp; Water Surface Dynamics | Gabriella Avbayeru</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="north" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L12 22M12 2L7 11M12 2L17 11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>
+        GABRIELLA AVBAYERU
+        <small>GIS &amp; GEOSPATIAL ANALYSIS</small>
+      </div>
+    </div>
+    <nav class="primary">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html" class="active">Projects</a>
+      <a href="../about.html">About</a>
+      <a href="../resume.html">Résumé</a>
+      <a href="mailto:gabriellaavbayeru@gmail.com">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="project-hero">
+  <div class="wrap">
+    <a class="back-link" href="../projects.html">&larr; All projects</a>
+    <span class="eyebrow"><span class="dash"></span>Case study</span>
+    <h1>Eleyele Reservoir — Vegetation Encroachment &amp; Water Surface Dynamics (2017–2025)</h1>
+    <p class="lede">A nine-year remote sensing study tracking how aquatic vegetation has spread across Eleyele Reservoir, Ibadan, and how much open water it has displaced in the process.</p>
+
+    <div class="meta-row">
+      <div><strong>Type</strong>Coursework assignment</div>
+      <div><strong>Study period</strong>2017 – 2025</div>
+      <div><strong>Location</strong>Eleyele Reservoir, Ibadan, Oyo State, Nigeria</div>
+      <div><strong>Software</strong>ArcGIS (ArcMap), Spatial Analyst</div>
+      <div><strong>Data</strong>Annual &amp; monthly vector, raster, and tabular time series</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+
+    <div class="stat-row">
+      <div class="stat">
+        <span class="num alert">−59%</span>
+        <span class="lbl">Avg. open water area, 2017 vs 2025</span>
+      </div>
+      <div class="stat">
+        <span class="num">41.4 → 17.1</span>
+        <span class="lbl">Hectares, 2017 avg. → 2025 avg.</span>
+      </div>
+      <div class="stat">
+        <span class="num">9</span>
+        <span class="lbl">Years of continuous monitoring</span>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h2>Overview</h2>
+      <p>Eleyele Reservoir has been visibly losing open water to aquatic vegetation for years, but nobody had quantified how fast or where it was happening worst. This assignment set out to do that: build a multi-year, multi-season record of the reservoir's water surface using existing vector boundaries, raster masks, and persistence layers from 2017 through 2025, then turn that record into maps and figures that actually show the trend.</p>
+      <p>The core question was simple — is the reservoir shrinking, and if so, by how much, where, and does it move with the seasons? The answer, confirmed across every output below, is yes: open water has declined sharply, and vegetation has taken its place.</p>
+
+      <h2>Data &amp; method</h2>
+      <p>The analysis ran entirely on pre-processed annual and monthly datasets — no field visits were involved. The workflow moved through five phases in ArcMap:</p>
+      <ul>
+        <li><strong>Project setup</strong> — organized all nine years of vector boundaries, raster water masks, and persistence layers into a single file geodatabase with a projected coordinate system suitable for accurate area calculations.</li>
+        <li><strong>Shoreline delineation</strong> — converted each year's water polygon into a shoreline using Feature to Line, giving a clean boundary to compare year over year.</li>
+        <li><strong>Change detection</strong> — used overlay analysis (Union/Erase) between consecutive years to isolate exactly which areas converted from open water to vegetation, and vice versa.</li>
+        <li><strong>Persistence classification</strong> — reclassified the stacked annual rasters to show how many of the nine years each pixel was vegetated, separating chronic encroachment from one-off seasonal noise.</li>
+        <li><strong>Seasonal analysis</strong> — split the data by wet and dry season to check whether vegetation cover responds to rainfall, or whether the long-term decline is independent of it.</li>
+      </ul>
+
+      <div class="trend-chart">
+        <span class="chart-label">Average monthly open-water surface area (ha) — 2017 to 2025</span>
+        <svg viewBox="0 0 640 250" width="100%" role="img" aria-label="Line chart showing average open water area declining from 41.4 hectares in 2017 to 17.1 hectares in 2025, with a partial rebound between 2021 and 2022">
+          <!-- gridlines -->
+          <g stroke="#C5CBBC" stroke-width="1">
+            <line x1="60" y1="220" x2="600" y2="220"/>
+            <line x1="60" y1="177.8" x2="600" y2="177.8"/>
+            <line x1="60" y1="135.6" x2="600" y2="135.6"/>
+            <line x1="60" y1="93.3" x2="600" y2="93.3"/>
+            <line x1="60" y1="51.1" x2="600" y2="51.1"/>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#51596B">
+            <text x="44" y="223" text-anchor="end">0</text>
+            <text x="44" y="180.8" text-anchor="end">10</text>
+            <text x="44" y="138.6" text-anchor="end">20</text>
+            <text x="44" y="96.3" text-anchor="end">30</text>
+            <text x="44" y="54.1" text-anchor="end">40 ha</text>
+          </g>
+          <!-- axis -->
+          <line x1="60" y1="220" x2="600" y2="220" stroke="#1B2430" stroke-width="1.5"/>
+          <!-- trend line -->
+          <polyline points="60,45.2 127.5,52.3 195,108.2 262.5,138.2 330,129.6 397.5,112.9 465,122.9 532.5,131 600,147.9"
+                     fill="none" stroke="#1E6FA3" stroke-width="2.5"/>
+          <g fill="#1E6FA3">
+            <circle cx="60" cy="45.2" r="4"/>
+            <circle cx="127.5" cy="52.3" r="4"/>
+            <circle cx="195" cy="108.2" r="4"/>
+            <circle cx="262.5" cy="138.2" r="4"/>
+            <circle cx="330" cy="129.6" r="4"/>
+            <circle cx="397.5" cy="112.9" r="4"/>
+            <circle cx="465" cy="122.9" r="4"/>
+            <circle cx="532.5" cy="131" r="4"/>
+            <circle cx="600" cy="147.9" r="4" fill="#B8412B"/>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#1B2430">
+            <text x="60" y="32" text-anchor="middle">41.4</text>
+            <text x="600" y="165" text-anchor="middle" fill="#B8412B">17.1</text>
+          </g>
+          <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#51596B">
+            <text x="60" y="238" text-anchor="middle">2017</text>
+            <text x="127.5" y="238" text-anchor="middle">2018</text>
+            <text x="195" y="238" text-anchor="middle">2019</text>
+            <text x="262.5" y="238" text-anchor="middle">2020</text>
+            <text x="330" y="238" text-anchor="middle">2021</text>
+            <text x="397.5" y="238" text-anchor="middle">2022</text>
+            <text x="465" y="238" text-anchor="middle">2023</text>
+            <text x="532.5" y="238" text-anchor="middle">2024</text>
+            <text x="600" y="238" text-anchor="middle">2025</text>
+          </g>
+        </svg>
+      </div>
+      <p style="font-size:0.9rem; color:var(--ink-soft);">Derived from the monthly area time series. The sharpest drop happened between 2018 and 2020; a partial rebound followed in 2021–2022 before the decline resumed.</p>
+
+      <h2>Findings</h2>
+    </div>
+
+    <div class="figure">
+      <img src="../images/eleyele-encroachment.png" alt="Map of Eleyele Reservoir showing remaining open water in blue and areas converted from water to vegetation (encroached area) in red, 2017 to 2025">
+    </div>
+    <div class="figure-cap"><span class="plate-no">PLATE 01</span>Vegetation Encroachment, 2017–2025 — red marks every part of the reservoir that converted from open water to vegetation over the study period. The northern arm and the southern shoreline show the heaviest loss.</div>
+
+    <div class="prose">
+      <div class="callout alert">
+        The encroachment map is the clearest single result of this study: large, contiguous sections of what was open water in 2017 — particularly the narrow northern channel and the western shoreline — had converted to standing vegetation by 2025.
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="figure">
+          <img src="../images/eleyele-veg-2017.png" alt="Map of aquatic vegetation distribution in Eleyele Reservoir in 2017, showing mostly open water with a thin fringe of vegetation">
+        </div>
+        <div class="figure-cap"><span class="plate-no">PLATE 02</span>Aquatic vegetation distribution, 2017. Vegetation is limited to a thin fringe around the shoreline.</div>
+      </div>
+      <div>
+        <div class="figure">
+          <img src="../images/eleyele-veg-2025.png" alt="Map of aquatic vegetation distribution in Eleyele Reservoir in 2025, showing vegetation covering most of the reservoir and only a narrow central channel of open water remaining">
+        </div>
+        <div class="figure-cap"><span class="plate-no">PLATE 03</span>Aquatic vegetation distribution, 2025. Vegetation now dominates the basin; open water is reduced to the central channel.</div>
+      </div>
+    </div>
+
+    <div class="figure">
+      <img src="../images/eleyele-persistence.png" alt="Map of vegetation persistence at Eleyele Reservoir showing, in a color scale, how many of the nine years (2017-2025) each location was vegetated">
+    </div>
+    <div class="figure-cap"><span class="plate-no">PLATE 04</span>Vegetation persistence, 2017–2025 — reclassified to show how many of the nine study years each pixel was vegetated. The darkest blue areas (8 of 9 years) mark chronic, established vegetation rather than seasonal growth.</div>
+
+    <div class="figure">
+      <img src="../images/eleyele-seasonal.png" alt="Side-by-side maps comparing aquatic vegetation distribution in Eleyele Reservoir during wet season and dry season">
+    </div>
+    <div class="figure-cap"><span class="plate-no">PLATE 05</span>Seasonal vegetation dynamics — wet season versus dry season. Vegetation cover is slightly more extensive in the dry season, but the difference is small next to the long-term, year-on-year trend.</div>
+
+    <div class="prose">
+      <h2>Interpretation</h2>
+      <p>Two things stand out from putting these five outputs together. First, the decline in open water is not a seasonal artifact — the persistence map shows large areas vegetated for 7, 8, or all 9 years monitored, which only a long-term process like sediment buildup, nutrient loading, or reduced flow could produce. Second, the seasonal comparison shows the wet/dry difference is real but minor compared to the year-on-year trend, meaning whatever is driving the encroachment isn't simply rainfall.</p>
+      <p>From a methods standpoint, this project was a good exercise in working entirely from time-series raster and vector data without any new image classification — the emphasis was on change detection, reclassification, and getting the cartographic outputs to actually communicate a trend rather than just show one year of data in isolation.</p>
+
+      <h2>Data &amp; downloads</h2>
+      <p>Supporting tables behind the figures above:</p>
+      <ul>
+        <li><a href="data/eleyele-monthly-area-trends.xlsx">Monthly open-water area, 2017–2025 (.xlsx)</a></li>
+        <li><a href="data/eleyele-shorelines-by-year.xlsx">Shoreline segment counts by year (.xlsx)</a></li>
+        <li><a href="data/eleyele-seasonal-fluctuation.tif">Seasonal fluctuation raster (.tif)</a></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="scale">
+      <span>PORTFOLIO V.1</span>
+      <span>·</span>
+      <span id="year"></span>
+    </div>
+    <div class="links">
+      <a href="mailto:gabriellaavbayeru@gmail.com">Email</a>
+      <a href="https://github.com/MyGabbbie">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ibadan North — Multi-Index Land Surface Mapping | Gabriella Avbayeru</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="north" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L12 22M12 2L7 11M12 2L17 11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>
+        GABRIELLA AVBAYERU
+        <small>GIS &amp; GEOSPATIAL ANALYSIS</small>
+      </div>
+    </div>
+    <nav class="primary">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html" class="active">Projects</a>
+      <a href="../about.html">About</a>
+      <a href="../resume.html">Résumé</a>
+      <a href="mailto:gabriellaavbayeru@gmail.com">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="project-hero">
+  <div class="wrap">
+    <a class="back-link" href="../projects.html">&larr; All projects</a>
+    <span class="eyebrow"><span class="dash"></span>Independent practice</span>
+    <h1>Ibadan North — Multi-Index Land Surface Mapping</h1>
+    <p class="lede">A practice run through four of the most common spectral indices in remote sensing — vegetation, soil-adjusted vegetation, water, and built-up — generated entirely in Google Earth Engine for Ibadan North in 2017.</p>
+
+    <div class="meta-row">
+      <div><strong>Type</strong>Personal project / practice exercise</div>
+      <div><strong>Location</strong>Ibadan North LGA, Oyo State, Nigeria</div>
+      <div><strong>Year</strong>2017</div>
+      <div><strong>Software</strong>Google Earth Engine (JavaScript API)</div>
+      <div><strong>Indices</strong>NDVI, SAVI, NDWI, NDBI</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+
+    <div class="prose">
+      <h2>Overview</h2>
+      <p>Spectral indices turn raw multispectral bands into a single number per pixel that highlights a specific land surface property — how green something is, how wet, how built-up. This exercise was about getting comfortable computing and interpreting four of the standard ones in Google Earth Engine for the same area and date, then reading them side by side rather than in isolation, since indices tend to make a lot more sense in contrast with each other than alone.</p>
+
+      <h2>The four indices</h2>
+      <ul>
+        <li><strong>NDVI</strong> (Normalized Difference Vegetation Index) — the standard measure of vegetation greenness and health; higher values mean denser, healthier vegetation.</li>
+        <li><strong>SAVI</strong> (Soil-Adjusted Vegetation Index) — a variant of NDVI that corrects for soil brightness showing through sparse canopy, generally more reliable than NDVI in areas with exposed or lightly vegetated soil.</li>
+        <li><strong>NDWI</strong> (Normalized Difference Water Index) — highlights surface moisture and water content; values closer to zero indicate more moisture, more negative values indicate drier surfaces.</li>
+        <li><strong>NDBI</strong> (Normalized Difference Built-up Index) — flags impervious, built-up surfaces; positive values lean built-up, negative values lean vegetated or moist.</li>
+      </ul>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="figure">
+          <img src="../images/ibadan-north-ndvi-2017.png" alt="NDVI map of Ibadan North 2017, color-coded from red (low vegetation) to green (high vegetation)">
+        </div>
+        <div class="figure-cap"><span class="plate-no">PLATE 01</span>NDVI — vegetation is concentrated in the northwest and around scattered green pockets through the built-up core; the southern half reads consistently low.</div>
+      </div>
+      <div>
+        <div class="figure">
+          <img src="../images/ibadan-north-savi-2017.png" alt="SAVI map of Ibadan North 2017, color-coded from red (low) to green (high)">
+        </div>
+        <div class="figure-cap"><span class="plate-no">PLATE 02</span>SAVI — the same broad pattern as NDVI but visibly compressed, the soil-brightness correction pulling sparsely vegetated pixels down rather than letting bare soil read as moderate vegetation.</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="figure">
+          <img src="../images/ibadan-north-ndwi-2017.png" alt="NDWI map of Ibadan North 2017, color-coded from brown (dry) to teal (relatively wetter)">
+        </div>
+        <div class="figure-cap"><span class="plate-no">PLATE 03</span>NDWI — every pixel in the scene reads negative, meaning no open water in this extent; the teal zones are relatively moist surfaces rather than literal water.</div>
+      </div>
+      <div>
+        <div class="figure">
+          <img src="../images/ibadan-north-ndbi-2017.png" alt="NDBI map of Ibadan North 2017, color-coded from green (vegetated) to red (built-up)">
+        </div>
+        <div class="figure-cap"><span class="plate-no">PLATE 04</span>NDBI — the built-up signal sits mostly in the low-positive (pale orange) range across the urban core, with the clearest green low-NDBI patches matching the same vegetated zones visible in the NDVI map.</div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h2>Reading them together</h2>
+      <p>The real value of this exercise was lining the four up against each other rather than reading any one in isolation. The patches that read high on NDVI and SAVI are the same patches that read low (vegetated) on NDBI — which is exactly the cross-check you'd want, since it confirms the indices are internally consistent rather than just visually similar by coincidence. NDWI staying negative across the whole scene is also informative on its own: it confirms this extent of Ibadan North has no significant open water body, so any future analysis using this data wouldn't need a separate water mask.</p>
+
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="scale">
+      <span>PORTFOLIO V.1</span>
+      <span>·</span>
+      <span id="year"></span>
+    </div>
+    <div class="links">
+      <a href="mailto:gabriellaavbayeru@gmail.com">Email</a>
+      <a href="https://github.com/MyGabbbie">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

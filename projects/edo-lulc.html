@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edo State LULC Dynamics (1999–2024) | Gabriella Avbayeru</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="north" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L12 22M12 2L7 11M12 2L17 11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>
+        GABRIELLA AVBAYERU
+        <small>GIS &amp; GEOSPATIAL ANALYSIS</small>
+      </div>
+    </div>
+    <nav class="primary">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html" class="active">Projects</a>
+      <a href="../about.html">About</a>
+      <a href="../resume.html">Résumé</a>
+      <a href="mailto:gabriellaavbayeru@gmail.com">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="project-hero">
+  <div class="wrap">
+    <a class="back-link" href="../projects.html">&larr; All projects</a>
+    <span class="eyebrow"><span class="dash"></span>Case study</span>
+    <h1>Spatiotemporal LULC Dynamics, Landscape Metrics &amp; Urban Growth Drivers in Edo State, Nigeria (1999–2024)</h1>
+    <p class="lede">A 25-year, six-epoch classification of Edo State's land cover, paired with Markov transition modelling, landscape structural metrics, and a demographic cross-analysis — built to explain not just what changed, but how and why.</p>
+
+    <div class="meta-row">
+      <div><strong>Type</strong>Coursework assignment — GIF 714</div>
+      <div><strong>Study period</strong>1999 – 2024 (5-year epochs)</div>
+      <div><strong>Location</strong>Edo State, Nigeria</div>
+      <div><strong>Software</strong>Google Earth Engine, ArcGIS Pro</div>
+      <div><strong>Data</strong>Landsat 5/7/8–9 (TM, ETM+, OLI)</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+
+    <div class="stat-row">
+      <div class="stat">
+        <span class="num alert">+37.0%</span>
+        <span class="lbl">Built-up area growth, 1999–2024</span>
+      </div>
+      <div class="stat">
+        <span class="num">+96.3%</span>
+        <span class="lbl">Population growth, same period</span>
+      </div>
+      <div class="stat">
+        <span class="num alert">−1,292 km²</span>
+        <span class="lbl">Forest lost in 2019–2024 alone</span>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h2>Overview</h2>
+      <p>Edo State sits on valuable timber reserves and fertile farmland, and both are under pressure from a population that nearly doubled between 1999 and 2024. This assignment classified six Landsat-derived land cover snapshots across that period — Water, Natural Vegetation, Cultivated Land, Built-up Area, and Barren Land — then went past simple before/after maps to ask three harder questions: which land classes are converting into which others, how fragmented has the landscape become, and is population growth actually driving the urban footprint, or is something else going on.</p>
+      <p>The headline answer: built-up area grew 37% while population grew 96% — cities are densifying rather than just sprawling — and nearly all of that urban and agricultural growth came directly out of natural vegetation, which lost over 1,292 km² in the final five years alone after staying roughly stable for the previous twenty.</p>
+
+      <h2>Data &amp; method</h2>
+      <p>All imagery and processing ran through Google Earth Engine's JavaScript API, with final cartography finished in ArcGIS Pro. The original brief called for data back to 1984, but the 1984–1994 Landsat archive over this part of Nigeria had cloud cover exceeding 45% — enough to misclassify cloud as barren land and cloud shadow as water or dense forest. That period was dropped in favor of a cleaner 1999–2024 window, screened to under 10% cloud using automated QA-pixel masking.</p>
+      <ul>
+        <li><strong>Imagery</strong> — Landsat 5 (TM), Landsat 7 (ETM+), and Landsat 8–9 (OLI), restricted to peak dry season (January–March) to minimize seasonal vegetation noise, projected to UTM Zone 31N / WGS84.</li>
+        <li><strong>Training &amp; classification</strong> — training polygons drawn from high-resolution Google Earth historical imagery, then classified with a Maximum Likelihood / Random Forest ensemble into the five thematic classes.</li>
+        <li><strong>Post-processing</strong> — a 3×3 majority filter to remove salt-and-pepper noise, followed by a 1999→2024 cross-tabulation to build the Markov transition matrix.</li>
+        <li><strong>Landscape metrics</strong> — six class-level structural metrics (class area, patch count, mean patch size, largest patch index, total edge, aggregation index) computed on the 2024 classification.</li>
+        <li><strong>Demographic cross-analysis</strong> — built-up area growth compared against NBS/NPC population estimates to derive a Land Consumption Coefficient for 1999 and 2024.</li>
+      </ul>
+    </div>
+
+    <div class="figure">
+      <img src="../images/edo-lulc-evolution.jpg" alt="Six-panel map showing Edo State land use and land cover classification for 1999, 2004, 2009, 2014, 2019, and 2024, showing built-up area in red expanding around Benin City and cultivated land in light green spreading across the north by 2024">
+    </div>
+    <div class="figure-cap"><span class="plate-no">PLATE 01</span>Edo State LULC, 1999–2024 — the built-up core around Benin City (red) grows steadily across all six epochs, but the most dramatic shift is the late surge of cultivated land (light green) across the northern half of the state by 2024.</div>
+
+    <div class="prose">
+      <div class="callout alert">
+        Almost all of that northern cultivated-land surge came directly from forest. The Markov matrix below shows natural vegetation has a 90.98% chance of staying forest — but with over 61,000 km² of starting forest, even the remaining single-digit percentage converts into a very large absolute area.
+      </div>
+
+      <h2>Where the change happened: 1999 vs. 2024</h2>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="figure">
+          <img src="../images/edo-lulc-1999.jpg" alt="Edo State land use and land cover map for 1999, showing dense natural vegetation across most of the state with limited built-up and cultivated areas">
+        </div>
+        <div class="figure-cap"><span class="plate-no">PLATE 02</span>1999 — a largely contiguous forest matrix, with built-up area confined to a small core around Benin City.</div>
+      </div>
+      <div>
+        <div class="figure">
+          <img src="../images/edo-lulc-2024.jpg" alt="Edo State land use and land cover map for 2024, showing a much larger built-up area around Benin City and extensive cultivated land replacing forest in the north">
+        </div>
+        <div class="figure-cap"><span class="plate-no">PLATE 03</span>2024 — Benin City's built-up footprint has radiated outward, and the northern third of the state has converted heavily to cultivated land.</div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h2>The numbers behind the maps</h2>
+      <p>Area by land cover class at each five-year epoch, with the net change across the full 25-year study period:</p>
+    </div>
+
+    <div class="data-table-wrap">
+      <table class="data-table">
+        <caption>LULC class area (km²) by epoch, 1999–2024</caption>
+        <thead>
+          <tr>
+            <th>Class</th><th>1999</th><th>2004</th><th>2009</th><th>2014</th><th>2019</th><th>2024</th><th>Net change</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Water Body</td><td>121.75</td><td>61.50</td><td>167.75</td><td>158.50</td><td>36.50</td><td>107.94</td><td class="neg">−11.34%</td></tr>
+          <tr><td>Natural Vegetation</td><td>17,682.50</td><td>18,084.75</td><td>18,183.25</td><td>18,431.75</td><td>18,473.00</td><td>17,180.96</td><td class="neg">−2.84%</td></tr>
+          <tr><td>Cultivated Land</td><td>1,485.50</td><td>1,142.25</td><td>921.00</td><td>655.75</td><td>677.00</td><td>1,916.45</td><td class="pos">+29.01%</td></tr>
+          <tr><td>Built-up Area</td><td>328.00</td><td>331.25</td><td>345.50</td><td>367.50</td><td>398.25</td><td>449.49</td><td class="pos">+37.04%</td></tr>
+          <tr><td>Barren Land</td><td>1.50</td><td>0.25</td><td>1.75</td><td>1.75</td><td>0.00</td><td>1.80</td><td class="pos">+20.00%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose">
+      <h2>Why it's changing, not just where</h2>
+      <p>Two further analyses got at the mechanics behind the maps:</p>
+      <ul>
+        <li><strong>Markov transition modelling</strong> — cross-tabulating 1999 against 2024 class membership shows natural vegetation has the highest retention probability of any class (P = 0.9098), but cultivated land has the lowest (P = 0.3720) — it has a 61.5% chance of reverting to natural vegetation, consistent with traditional bush-fallow farming rather than permanent clearing. Built-up area sits in between (P = 0.6762), and its apparent 27% "loss" to vegetation is mostly edge-pixel misclassification where tree canopy overhangs roads, not actual demolition.</li>
+        <li><strong>Landscape structure</strong> — natural vegetation still forms a highly aggregated core (Aggregation Index 81.97%, Largest Patch Index 81.97%), but it's carrying a massive Total Edge of 9.5 million metres — a measurable signature of fragmentation along the forest–farmland boundary. Cultivated land and built-up area, by contrast, have very low aggregation (6.82% and 1.15%), meaning new farms and buildings are popping up as thousands of small, scattered patches rather than expanding from one core — a "leapfrog" pattern that cuts into the forest matrix from many directions at once instead of one.</li>
+      </ul>
+
+      <h2>Population vs. built-up area: densification, not just sprawl</h2>
+      <p>Edo State's population grew 96.28% over the study period (2,674,800 → 5,250,000, per NBS/NPC estimates) while its built-up footprint grew only 37.04%. Dividing the two gives the Land Consumption Coefficient — land consumed per person — which fell from 1.226×10⁻⁴ km²/person in 1999 to 0.856×10⁻⁴ km²/person in 2024. In plain terms: Edo's cities are packing in more people per square kilometre than they used to, rather than purely sprawling outward. That's good news for farmland and forest at the margins, but it also means aging drainage, power, and transit infrastructure in places like Benin City, Ekpoma, and Auchi is now serving far more people than it was designed for.</p>
+
+      <h2>Five cities, five growth patterns</h2>
+      <p>Urban expansion didn't look the same everywhere in the state — each major city grew along a distinct geographic logic:</p>
+      <ul>
+        <li><strong>Benin City</strong> — axial radiating growth outward from the historic core along three highway corridors (Auchi, Asaba, Ore-Lagos roads).</li>
+        <li><strong>Auchi</strong> — a linear corridor squeezed along the north–south highway by surrounding hills and ridges, driven by quarrying and student housing near Auchi Polytechnic.</li>
+        <li><strong>Ekpoma</strong> — an institution-led cluster radiating from Ambrose Alli University, with aggressive infill between older plots.</li>
+        <li><strong>Uromi</strong> — a hub-and-spoke pattern radiating from its market core along main roads.</li>
+        <li><strong>Ikpoba-Okha / Ovia corridors</strong> — an industrial belt pulled south toward river ports and oil palm processing infrastructure.</li>
+      </ul>
+
+      <h2>What's driving it</h2>
+      <p>Three forces stand out: direct demographic pressure on housing and infrastructure; institutional de-reservation of protected forests (Okomu, Ehor, Gele-Gele, Sakponba) opening land to commercial oil palm and rubber concessions; and logging roads cut for valuable timber (mahogany, opepe, afara) that then give smallholder farmers new access into previously closed forest interior.</p>
+
+      <h2>What I'd do differently</h2>
+      <p>Use SAR to penetrate the cloud cover and get better imagery. Optical sensors are exactly why the 1984–1994 period had to be dropped in the first place — radar wouldn't have that problem, and pairing it with the existing Landsat record could plug that gap instead of leaving it out entirely.</p>
+
+      <h2>Data &amp; downloads</h2>
+      <ul>
+        <li><a href="data/edo-lulc-full-report.pdf">Full assignment report — LULC dynamics, transition matrices &amp; landscape metrics (.pdf)</a></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="scale">
+      <span>PORTFOLIO V.1</span>
+      <span>·</span>
+      <span id="year"></span>
+    </div>
+    <div class="links">
+      <a href="mailto:gabriellaavbayeru@gmail.com">Email</a>
+      <a href="https://github.com/MyGabbbie">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

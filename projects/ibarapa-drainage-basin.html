@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ibarapa East — Drainage Basin Delineation | Gabriella Avbayeru</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="north" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L12 22M12 2L7 11M12 2L17 11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>
+        GABRIELLA AVBAYERU
+        <small>GIS &amp; GEOSPATIAL ANALYSIS</small>
+      </div>
+    </div>
+    <nav class="primary">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html" class="active">Projects</a>
+      <a href="../about.html">About</a>
+      <a href="../resume.html">Résumé</a>
+      <a href="mailto:gabriellaavbayeru@gmail.com">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="project-hero">
+  <div class="wrap">
+    <a class="back-link" href="../projects.html">&larr; All projects</a>
+    <span class="eyebrow"><span class="dash"></span>Independent practice</span>
+    <h1>Ibarapa East — Drainage Basin Delineation</h1>
+    <p class="lede">A self-directed exercise in DEM-based hydrological analysis: delineating the sub-basins and stream network of Ibarapa East from raw elevation data, start to finish, in ArcGIS Pro.</p>
+
+    <div class="meta-row">
+      <div><strong>Type</strong>Personal project / practice exercise</div>
+      <div><strong>Location</strong>Ibarapa East LGA, Oyo State, Nigeria</div>
+      <div><strong>Software</strong>ArcGIS Pro (Hydrology toolset)</div>
+      <div><strong>Data</strong>SRTM DEM, USGS EarthExplorer</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+
+    <div class="stat-row">
+      <div class="stat">
+        <span class="num">5</span>
+        <span class="lbl">Sub-basins delineated</span>
+      </div>
+      <div class="stat">
+        <span class="num">4</span>
+        <span class="lbl">Outlet points identified</span>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h2>Overview</h2>
+      <p>Watershed delineation is one of those GIS skills that's easy to follow in a tutorial and harder to actually own — so this was a deliberate practice run: take a raw Digital Elevation Model with no pre-processing, and work all the way through to a clean, presentable basin map with no assignment brief telling me the steps. The area of interest is Ibarapa East, a local government area in Oyo State, Nigeria.</p>
+
+      <h2>Data &amp; method</h2>
+      <p>Elevation data came from the SRTM DEM, downloaded through USGS EarthExplorer and clipped to the Ibarapa East boundary and its surrounding catchment. From there, the analysis followed ArcGIS Pro's standard hydrology workflow:</p>
+      <ul>
+        <li><strong>Fill</strong> — corrected spurious sinks and imperfections in the raw DEM so flow paths wouldn't terminate incorrectly.</li>
+        <li><strong>Flow Direction</strong> — computed the direction of steepest descent for every cell.</li>
+        <li><strong>Flow Accumulation</strong> — calculated how much upstream area drains through each cell, the basis for identifying where streams actually form.</li>
+        <li><strong>Stream definition &amp; outlet placement</strong> — thresholded the flow accumulation raster to extract the river network, then identified the points where multiple streams converge and exit the area as outlets.</li>
+        <li><strong>Watershed delineation</strong> — used the outlets as pour points to delineate the contributing sub-basin for each one.</li>
+      </ul>
+    </div>
+
+    <div class="figure">
+      <img src="../images/ibarapa-east-drainage-basin.jpg" alt="Map of Ibarapa East showing five color-coded sub-basins delineated from SRTM DEM data, with river networks and four yellow outlet points marking where streams converge and exit the catchment">
+    </div>
+    <div class="figure-cap"><span class="plate-no">PLATE 01</span>Five delineated sub-basins draining through four identified outlets, with the extracted river network overlaid on each catchment.</div>
+
+    <div class="prose">
+      <h2>What I'd do differently</h2>
+      <p>Replace this with your own reflection — for example, whether you'd compare the SRTM-derived stream network against mapped rivers to check delineation accuracy, calculate basin area and stream order for each sub-basin, or test how the result changes with a different flow accumulation threshold.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="scale">
+      <span>PORTFOLIO V.1</span>
+      <span>·</span>
+      <span id="year"></span>
+    </div>
+    <div class="links">
+      <a href="mailto:gabriellaavbayeru@gmail.com">Email</a>
+      <a href="https://github.com/MyGabbbie">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

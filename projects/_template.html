@@ -1,0 +1,119 @@
+<!doctype html>
+<!--
+  PROJECT PAGE TEMPLATE
+  ======================
+  How to use this file for a new project:
+  1. Duplicate this file and rename it, e.g. projects/my-new-project.html
+  2. Replace every [BRACKETED] placeholder below with your real content
+  3. Put your map images in /images/ and update the <img src="..."> paths
+  4. Put any data files in /projects/data/ and update the download links
+  5. Add a matching "plate" card to projects.html (and optionally index.html)
+     that links to your new file — see the instructions inside projects.html
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Project Title] | Gabriella Avbayeru</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="north" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L12 22M12 2L7 11M12 2L17 11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>
+        GABRIELLA AVBAYERU
+        <small>GIS &amp; GEOSPATIAL ANALYSIS</small>
+      </div>
+    </div>
+    <nav class="primary">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html" class="active">Projects</a>
+      <a href="../about.html">About</a>
+      <a href="../resume.html">Résumé</a>
+      <a href="mailto:gabriellaavbayeru@gmail.com">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="project-hero">
+  <div class="wrap">
+    <a class="back-link" href="../projects.html">&larr; All projects</a>
+    <span class="eyebrow"><span class="dash"></span>[Case study / Assignment / Independent project]</span>
+    <h1>[Project Title]</h1>
+    <p class="lede">[One or two sentences: what is this project, and what did you find? Write it like a summary someone skimming your portfolio would actually read.]</p>
+
+    <div class="meta-row">
+      <div><strong>Type</strong>[Coursework assignment / Thesis chapter / Personal project]</div>
+      <div><strong>Study period</strong>[e.g. 2023 – 2024]</div>
+      <div><strong>Location</strong>[Study area]</div>
+      <div><strong>Software</strong>[e.g. QGIS, Python]</div>
+      <div><strong>Data</strong>[e.g. Sentinel-2, field survey data]</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+
+    <!-- Optional: 2-3 headline stats. Delete this block if it doesn't fit the project. -->
+    <div class="stat-row">
+      <div class="stat">
+        <span class="num">[X]</span>
+        <span class="lbl">[What this number measures]</span>
+      </div>
+      <div class="stat">
+        <span class="num">[X]</span>
+        <span class="lbl">[What this number measures]</span>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h2>Overview</h2>
+      <p>[What problem or question did this project address, and why does it matter?]</p>
+
+      <h2>Data &amp; method</h2>
+      <p>[What data did you use, and what was your workflow? A short numbered or bulleted list of steps works well here.]</p>
+    </div>
+
+    <!-- Repeat this figure block for each map/image you want to show -->
+    <div class="figure">
+      <img src="../images/[your-image].png" alt="[Describe what the map shows]">
+    </div>
+    <div class="figure-cap"><span class="plate-no">PLATE 01</span>[Caption explaining what this map shows and why it matters]</div>
+
+    <div class="prose">
+      <h2>Findings</h2>
+      <p>[What did the analysis show? Lead with the most important result.]</p>
+
+      <h2>What I'd do differently</h2>
+      <p>[A brief, honest reflection — this is what makes a portfolio piece read as real work rather than a polished brochure.]</p>
+
+      <h2>Data &amp; downloads</h2>
+      <ul>
+        <li><a href="data/[your-file].xlsx">[Description of the file] (.xlsx)</a></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="scale">
+      <span>PORTFOLIO V.1</span>
+      <span>·</span>
+      <span id="year"></span>
+    </div>
+    <div class="links">
+      <a href="mailto:gabriellaavbayeru@gmail.com">Email</a>
+      <a href="https://github.com/MyGabbbie">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
