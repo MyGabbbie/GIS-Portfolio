@@ -24,7 +24,7 @@ Before publishing, search every HTML file for these placeholders and replace the
 - `linkedin.com/in/yourprofile` — your LinkedIn URL
 - `github.com/yourusername` — your GitHub URL
 - `[University name]`, `[Expected graduation year]`, etc. in `about.html`
-- `assets/resume.pdf` / `assets/resume.docx` — your résumé in both formats. Already filled in; replace these two files (keep the same filenames) whenever you update your resume, and the `resume.html` page and download buttons will pick up the new version automatically.
+- `assets/resume.pdf` — your résumé. Already filled in; replace this file (keep the same filename) whenever you update your resume, and the `resume.html` page and download button will pick up the new version automatically.
 
 ## 2. Add a new project (do this every time you finish one)
 
