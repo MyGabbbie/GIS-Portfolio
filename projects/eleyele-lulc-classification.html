@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eleyele Reservoir LULC - Optical vs SAR-Optical Fusion | Gabriella Esereomo Avbayeru</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="north" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L12 22M12 2L7 11M12 2L17 11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>
+        GABRIELLA ESEREOMO AVBAYERU
+        <small>GIS &amp; GEOSPATIAL ANALYSIS</small>
+      </div>
+    </div>
+    <nav class="primary">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html" class="active">Projects</a>
+      <a href="../about.html">About</a>
+      <a href="../resume.html">Résumé</a>
+      <a href="mailto:gabriellaavbayeru@gmail.com">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="project-hero">
+  <div class="wrap">
+    <a class="back-link" href="../projects.html">&larr; All projects</a>
+    <span class="eyebrow"><span class="dash"></span>Assignment</span>
+    <h1>Eleyele Reservoir LULC Classification - Optical vs SAR-Optical Fusion</h1>
+    <p class="lede">A Random Forest land cover classification comparing Sentinel-2 optical imagery alone against Sentinel-2 fused with Sentinel-1 SAR, testing whether radar data actually improves classification accuracy over the Eleyele Reservoir area in Ibadan.</p>
+
+    <div class="meta-row">
+      <div><strong>Type</strong>Coursework assignment (GIF 702)</div>
+      <div><strong>Year</strong>2026</div>
+      <div><strong>Location</strong>Eleyele Reservoir and environs, Ibadan, Oyo State (~3,417 ha)</div>
+      <div><strong>Software</strong>Google Earth Engine, ArcGIS Pro</div>
+      <div><strong>Data</strong>Sentinel-2 SR, Sentinel-1 GRD (VV, VH), 2025 median composites</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+
+    <div class="stat-row">
+      <div class="stat">
+        <span class="num">97.09%</span>
+        <span class="lbl">Overall accuracy, Sentinel-2 only</span>
+      </div>
+      <div class="stat">
+        <span class="num">95.60%</span>
+        <span class="lbl">Overall accuracy, S2 + S1 fusion</span>
+      </div>
+      <div class="stat">
+        <span class="num">5</span>
+        <span class="lbl">Land cover classes</span>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h2>Overview</h2>
+      <p>Does adding radar to optical imagery actually improve land cover classification? That was the question. SAR is supposed to help in cloud-prone tropical regions like Nigeria because it penetrates cloud cover, and it picks up surface texture and moisture that optical bands miss. But does it actually make the final map better?</p>
+      <p>To find out, I classified the same area (Eleyele Reservoir and its surroundings in Ibadan) twice using Random Forest in Google Earth Engine: once with Sentinel-2 optical bands and spectral indices alone, and once with Sentinel-1 SAR backscatter (VV, VH, VV/VH ratio) added on top. Same training data, same five classes, same validation split. Then I compared the results.</p>
+
+      <h2>Method</h2>
+      <p>Sentinel-2 Surface Reflectance imagery was filtered to under 10% cloud cover and composited as a 2025 annual median. Six spectral bands (Blue, Green, Red, NIR, SWIR1, SWIR2) plus three derived indices (NDVI, NDWI, NDBI) gave nine optical predictors. For the fusion run, three Sentinel-1 GRD variables (VV, VH, VV/VH ratio) from a 2025 median composite were added, bringing total predictors to twelve.</p>
+      <p>Five land cover classes were digitised as point training data: Water, Built-up, Dense Vegetation, Light Vegetation, and Bareland. A 70:30 train/validation split was done at the spatial block level (~50 m blocks) to avoid autocorrelation between training and validation samples. Random Forest was trained with 200 trees for the optical-only run and 300 trees for the fusion run.</p>
+      <p>Final cartography was done in ArcGIS Pro. Projection is WGS 84 / UTM Zone 31N.</p>
+    </div>
+
+    <div class="figure">
+      <img src="../images/eleyele-lulc-s2-only.jpg" alt="Random Forest LULC classification of Eleyele Reservoir using Sentinel-2 optical imagery only, showing five land cover classes: Water (blue), Built-up (red), Dense Vegetation (teal), Light Vegetation (yellow), and Bareland (brown)">
+    </div>
+    <div class="figure-cap"><span class="plate-no">PLATE 01</span>Sentinel-2 only classification (Scenario A). Overall accuracy 97.09%, Kappa 0.96.</div>
+
+    <div class="figure">
+      <img src="../images/eleyele-lulc-fusion.jpg" alt="Random Forest LULC classification of Eleyele Reservoir using Sentinel-2 fused with Sentinel-1 SAR, showing the same five land cover classes with visible differences in built-up and bareland distribution">
+    </div>
+    <div class="figure-cap"><span class="plate-no">PLATE 02</span>Sentinel-2 + Sentinel-1 SAR fusion classification (Scenario B). Overall accuracy 95.60%, Kappa 0.94.</div>
+
+    <div class="prose">
+      <h2>What I found</h2>
+      <p>The Sentinel-2-only classification scored higher on overall accuracy (97.09% vs 95.60%). That was surprising, since the expectation going in was that more data would mean better results.</p>
+      <p>But the class-level numbers told a different story. The fusion approach improved water detection, with producer's accuracy jumping from 93% to 97.7%. The biggest shift was in bareland: the fusion run reclassified a large portion of what Sentinel-2 alone labelled as bareland into built-up, with bareland area dropping by 36% between the two scenarios. SAR backscatter was picking up surface roughness differences between bare soil and built surfaces that the optical bands couldn't separate.</p>
+      <p>The Random Forest variable importance ranking backed this up. The SAR bands (VV, VH, VV/VH ratio) ranked at the bottom. Optical bands like SWIR2, NIR, and Red, plus the spectral indices (NDVI, NDBI, NDWI), drove most of the classification. SAR contributed as a supporting layer, not a dominant one.</p>
+
+      <div class="callout">
+        Sensor fusion doesn't always boost overall accuracy, but it can change how individual classes get mapped. For a study area like Eleyele, where built-up land is pressing right up against the reservoir, getting that built-up vs bareland distinction right matters for urban planning and water resource management.
+      </div>
+
+      <h2>Tools and data</h2>
+      <ul>
+        <li><strong>Classification</strong> - Random Forest, Google Earth Engine (JavaScript API)</li>
+        <li><strong>Optical data</strong> - Sentinel-2 SR (COPERNICUS/S2_SR_HARMONIZED), 2025 median, &lt;10% cloud</li>
+        <li><strong>SAR data</strong> - Sentinel-1 GRD (IW mode, VV+VH polarisation), 2025 median</li>
+        <li><strong>Validation</strong> - 70:30 spatial block split (~50 m blocks)</li>
+        <li><strong>Cartography</strong> - ArcGIS Pro, WGS 84 / UTM Zone 31N</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="scale">
+      <span>PORTFOLIO V.1</span>
+      <span>·</span>
+      <span id="year"></span>
+    </div>
+    <div class="links">
+      <a href="mailto:gabriellaavbayeru@gmail.com">Email</a>
+      <a href="https://github.com/MyGabbbie">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

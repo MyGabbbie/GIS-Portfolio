@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nigeria After Dark - Nighttime Lights &amp; Gas Flaring | Gabriella Esereomo Avbayeru</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>.dark-fig .figure{ background: #111; }</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="north" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L12 22M12 2L7 11M12 2L17 11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>
+        GABRIELLA ESEREOMO AVBAYERU
+        <small>GIS &amp; GEOSPATIAL ANALYSIS</small>
+      </div>
+    </div>
+    <nav class="primary">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html" class="active">Projects</a>
+      <a href="../about.html">About</a>
+      <a href="../resume.html">Résumé</a>
+      <a href="mailto:gabriellaavbayeru@gmail.com">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="project-hero">
+  <div class="wrap">
+    <a class="back-link" href="../projects.html">&larr; All projects</a>
+    <span class="eyebrow"><span class="dash"></span>Independent project</span>
+    <h1>Nigeria After Dark - Nighttime Lights &amp; Gas Flaring from Space</h1>
+    <p class="lede">A VIIRS nighttime lights map of Nigeria that separates city lights from gas flares in the Niger Delta, paired with a data-driven investigation into whether Nigeria's gas flaring is actually declining - or just tracking oil production downward.</p>
+
+    <div class="meta-row">
+      <div><strong>Type</strong>Independent project / LinkedIn content · 2026</div>
+      <div><strong>Location</strong>Nigeria (national), Niger Delta (detail)</div>
+      <div><strong>Software</strong>Google Earth Engine, ArcGIS Pro</div>
+      <div><strong>Data</strong>NOAA VIIRS DNB Annual V2.1, World Bank / GFMR Global Gas Flaring Tracker, NUPRC, NOSDRA, EIA</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+
+    <div class="stat-row">
+      <div class="stat">
+        <span class="num">21,000+</span>
+        <span class="lbl">LinkedIn impressions</span>
+      </div>
+      <div class="stat">
+        <span class="num alert">−29%</span>
+        <span class="lbl">Flared volume since 2012</span>
+      </div>
+      <div class="stat">
+        <span class="num alert">+9%</span>
+        <span class="lbl">Flaring intensity per barrel since 2012</span>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h2>Overview</h2>
+      <p>Nigeria is one of the world's largest gas-flaring nations, burning off associated gas at oil extraction sites across the Niger Delta. From space, those flares are visible as bright clusters in VIIRS nighttime imagery - indistinguishable from cities at first glance, but concentrated in the creeks and swampland where no city exists. This project started as a single map - "Nigeria After Dark" - built in Google Earth Engine from NOAA VIIRS Day/Night Band annual composites and styled in ArcGIS Pro, designed to make that distinction visible at a glance.</p>
+      <p>That map went viral on LinkedIn (21,000+ impressions) and was picked up by GIZ Nigeria (Deutsche Gesellschaft für Internationale Zusammenarbeit) for a 2–3 minute video presentation at a national gas flaring report launch event. The attention prompted a data-driven follow-up: a series of charts and analyses using World Bank GFMR, NUPRC, NOSDRA, and EIA data to answer a harder question - is Nigeria's gas flaring actually declining, or is the drop just tracking falling oil production?</p>
+
+      <h2>The map</h2>
+    </div>
+
+    <div class="dark-fig">
+      <div class="figure">
+        <img src="../images/nigeria-after-dark.png" alt="Nighttime lights map of Nigeria showing cities as purple-white clusters and gas flares circled in the Niger Delta region, built from NOAA VIIRS DNB Annual V2.1 data in Google Earth Engine and ArcGIS Pro">
+      </div>
+    </div>
+    <div class="figure-cap"><span class="plate-no">PLATE 01</span>Nigeria After Dark - VIIRS nighttime lights with gas flares annotated in the Niger Delta. Cities like Lagos, Kano, and Abuja appear as diffuse purple-white clusters; gas flares show as concentrated bright points in the creeks and swampland south of Port Harcourt and Warri.</div>
+
+    <div class="prose">
+      <h2>Validating the flares</h2>
+      <p>Seeing bright spots in the Delta doesn't prove they're flares - it could be fishing boats, refineries, or settlement lighting. To confirm, World Bank / GFMR catalogued gas flare site locations (with individual-site volume estimates for 2025) were overlaid on the VIIRS imagery.</p>
+    </div>
+
+    <div class="dark-fig">
+      <div class="figure">
+        <img src="../images/nigeria-flare-validation.png" alt="Zoomed view of the Niger Delta nighttime lights with white rings overlaid marking catalogued gas flare sites from the World Bank GFMR database, sized by volume flared in 2025">
+      </div>
+    </div>
+    <div class="figure-cap"><span class="plate-no">PLATE 02</span>Validation - white rings mark every catalogued gas flare site, sized by volume flared in 2025 (World Bank / GFMR). The bright VIIRS clusters align almost exactly with the catalogue, confirming these are flares, not settlements.</div>
+
+    <div class="prose">
+      <h2>The data behind the map</h2>
+      <p>Once the map established what and where, the follow-up asked: is this getting better or worse? Three analyses answered that question.</p>
+    </div>
+
+    <div class="dark-fig">
+      <div class="figure">
+        <img src="../images/nigeria-volume-vs-intensity.png" alt="Line chart showing gas flared volume down 29% since 2012 but flaring intensity per barrel of oil up 9% over the same period">
+      </div>
+    </div>
+    <div class="figure-cap"><span class="plate-no">PLATE 03</span>Volume fell, intensity rose - gas flared is down 29% since 2012, but gas flared per barrel of oil produced is up 9%. The decline was never about capturing more gas.</div>
+
+    <div class="dark-fig">
+      <div class="figure">
+        <img src="../images/nigeria-production-mechanism.png" alt="Three-panel chart showing oil production fell 35%, flared volume followed it down, but flaring intensity per barrel did not decline">
+      </div>
+    </div>
+    <div class="figure-cap"><span class="plate-no">PLATE 04</span>The mechanism - oil production dropped 35% over the same period, and flared volume tracked it down. But intensity (gas flared per barrel) stayed flat or rose, meaning the industry is not getting cleaner - it's just producing less oil.</div>
+
+    <div class="dark-fig">
+      <div class="figure">
+        <img src="../images/nigeria-three-sources.png" alt="Bar chart comparing gas flared volumes reported by NUPRC (5.77 bcm), World Bank GFMR (6.60 bcm), and NOSDRA (9.15 bcm) for 2025, showing up to 59% disagreement">
+      </div>
+    </div>
+    <div class="figure-cap"><span class="plate-no">PLATE 05</span>Three sources, three answers - NUPRC (operator-reported), World Bank / GFMR (satellite-derived), and NOSDRA all agree flaring rose in 2025, but disagree on the absolute volume by up to 59%. The trend is solid; the number is contested.</div>
+
+    <div class="prose">
+      <h2>Impact</h2>
+      <p>The original map was featured by GIZ Nigeria at a national gas flaring report launch event. Beyond the immediate reach on LinkedIn, the project demonstrated that combining freely available satellite data (VIIRS) with public flaring databases (GFMR) can produce policy-relevant analysis without any proprietary data access - and that presenting the results as data storytelling rather than a technical report is what gets it in front of the people who need to see it.</p>
+
+      <h2>Tools &amp; data sources</h2>
+      <ul>
+        <li><strong>Map</strong> - NOAA VIIRS DNB Annual V2.1 composite, processed in Google Earth Engine (JavaScript API), final cartography and annotation in ArcGIS Pro.</li>
+        <li><strong>Validation</strong> - World Bank / GFMR Global Gas Flaring Tracker (individual flare site coordinates and volumes, 2025).</li>
+        <li><strong>Time-series analysis</strong> - World Bank / GFMR (flared volume and intensity, 2012–2025), NUPRC 2025 Gas Production Status Report, NOSDRA 2025 gas flare report, EIA (Nigerian crude oil production, 2012–2025).</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="scale">
+      <span>PORTFOLIO V.1</span>
+      <span>·</span>
+      <span id="year"></span>
+    </div>
+    <div class="links">
+      <a href="mailto:gabriellaavbayeru@gmail.com">Email</a>
+      <a href="https://github.com/MyGabbbie">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

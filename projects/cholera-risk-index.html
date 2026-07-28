@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nigeria Cholera Environmental Risk Index | Gabriella Esereomo Avbayeru</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="north" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L12 22M12 2L7 11M12 2L17 11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>
+        GABRIELLA ESEREOMO AVBAYERU
+        <small>GIS &amp; GEOSPATIAL ANALYSIS</small>
+      </div>
+    </div>
+    <nav class="primary">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html" class="active">Projects</a>
+      <a href="../about.html">About</a>
+      <a href="../resume.html">Résumé</a>
+      <a href="mailto:gabriellaavbayeru@gmail.com">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="project-hero">
+  <div class="wrap">
+    <a class="back-link" href="../projects.html">&larr; All projects</a>
+    <span class="eyebrow"><span class="dash"></span>Independent project</span>
+    <h1>Where Cholera Strikes Hardest in Nigeria - An Environmental Risk Index</h1>
+    <p class="lede">A composite risk index built from four environmental variables - flood frequency, population density, rainfall, and elevation - showing which parts of Nigeria are most environmentally exposed to cholera outbreaks when the rains come.</p>
+
+    <div class="meta-row">
+      <div><strong>Type</strong>Independent project / LinkedIn content · 2026</div>
+      <div><strong>Location</strong>Nigeria (national)</div>
+      <div><strong>Software</strong>Google Earth Engine, ArcGIS Pro</div>
+      <div><strong>Data</strong>JRC Global Surface Water, WorldPop 2020, CHIRPS Rainfall (2020–2025), USGS SRTM</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+
+    <div class="prose">
+      <h2>Overview</h2>
+      <p>Wherever floodwater goes in Nigeria, cholera follows. The connection between flooding and cholera outbreaks is well established - contaminated water sitting in communities, broken drainage, overwhelmed sanitation - but the spatial pattern of where that risk concentrates isn't something most people can picture at a national scale. This project set out to map exactly that: not where cholera has been reported (which depends on surveillance capacity), but where the environmental conditions are most favourable for an outbreak to happen.</p>
+      <p>The timing was tied to the Lagos flooding season, when the conversation around flood-borne disease risk was already live on Nigerian social media and in the NCDC's public advisories.</p>
+
+      <h2>Data &amp; method</h2>
+      <p>The risk index combines four variables, each chosen because it has a direct, documented link to cholera transmission:</p>
+      <ul>
+        <li><strong>Flood frequency</strong> (JRC Global Surface Water) - how often each location has been inundated over the satellite record. Higher flood frequency means more regular contact between surface water and human settlements.</li>
+        <li><strong>Population density</strong> (WorldPop 2020) - cholera is a disease of proximity. Dense settlements with shared water sources and limited sanitation infrastructure amplify transmission.</li>
+        <li><strong>Cumulative rainfall</strong> (CHIRPS, 2020–2025) - sustained heavy rainfall overwhelms drainage systems and drives the surface flooding that triggers outbreaks.</li>
+        <li><strong>Elevation</strong> (USGS SRTM, inverted) - water flows downhill. Low-lying areas collect runoff, floodwater, and the contamination it carries. Inverting elevation so that lower = higher risk captures this directly.</li>
+      </ul>
+      <p>Each layer was normalized to a 0–1 scale in Google Earth Engine, then combined into a weighted composite index. The result was exported as a continuous raster and also aggregated to state-level summary statistics. Final cartography and the five-class risk legend (Low through Very High) were produced in ArcGIS Pro.</p>
+    </div>
+
+    <div class="figure">
+      <img src="../images/nigeria-cholera-risk.png" alt="Map of Nigeria showing a cholera environmental risk index classified from Low (yellow) to Very High (red), with the highest risk concentrated in Lagos, the Niger Delta states, and along the Niger-Benue river corridor">
+    </div>
+    <div class="figure-cap"><span class="plate-no">PLATE 01</span>Cholera Environmental Risk Index - the deep red zones (Very High risk) cluster in Lagos, Bayelsa, Rivers, Delta, and along the Niger-Benue floodplain. The far north scores lower on this environmental index, though the NCDC has flagged several northern states for outbreak risk following flooding.</div>
+
+    <div class="prose">
+      <h2>What the map shows</h2>
+      <p>The highest-risk zones - deep red - fall exactly where you'd expect if you've followed Nigeria's cholera history: Lagos (dense population, near-zero elevation, chronic flooding), the Niger Delta states (Bayelsa, Rivers, Delta), and the Niger-Benue river corridor where communities along the banks face the same seasonal contamination cycle every year. Lagos Island alone accounts for some of the country's highest historically reported cholera cases, and that was before recent flooding seasons.</p>
+      <p>The far north of the country scores lower on this specific environmental index, since it has lower flood frequency and rainfall. But environmental risk isn't the whole picture - the NCDC has flagged states like Kogi, Oyo, and Kwara for disease outbreak risk following flooding, and sanitation infrastructure gaps in the north mean that even moderate environmental exposure can trigger outbreaks there too.</p>
+
+      <h2>Why this matters</h2>
+      <p>GIS can help solve this kind of problem before outbreaks happen, not after. A map like this gives public health planners a way to pre-position oral rehydration supplies, target WASH interventions, and focus surveillance on the areas where environmental conditions favour outbreaks year after year.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="scale">
+      <span>PORTFOLIO V.1</span>
+      <span>·</span>
+      <span id="year"></span>
+    </div>
+    <div class="links">
+      <a href="mailto:gabriellaavbayeru@gmail.com">Email</a>
+      <a href="https://github.com/MyGabbbie">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

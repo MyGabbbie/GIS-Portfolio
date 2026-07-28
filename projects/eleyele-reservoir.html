@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eleyele Reservoir — Vegetation Encroachment &amp; Water Surface Dynamics | Gabriella Esereomo Avbayeru</title>
+<title>Eleyele Reservoir - Vegetation Encroachment &amp; Water Surface Dynamics | Gabriella Esereomo Avbayeru</title>
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -31,14 +31,14 @@
   <div class="wrap">
     <a class="back-link" href="../projects.html">&larr; All projects</a>
     <span class="eyebrow"><span class="dash"></span>Case study</span>
-    <h1>Eleyele Reservoir — Vegetation Encroachment &amp; Water Surface Dynamics (2017–2025)</h1>
+    <h1>Eleyele Reservoir - Vegetation Encroachment &amp; Water Surface Dynamics (2017–2025)</h1>
     <p class="lede">A nine-year remote sensing study tracking how aquatic vegetation has spread across Eleyele Reservoir, Ibadan, and how much open water it has displaced in the process.</p>
 
     <div class="meta-row">
       <div><strong>Type</strong>Coursework assignment</div>
-      <div><strong>Study period</strong>2017 – 2025</div>
+      <div><strong>Study period</strong>2017–2025</div>
       <div><strong>Location</strong>Eleyele Reservoir, Ibadan, Oyo State, Nigeria</div>
-      <div><strong>Software</strong>ArcGIS (ArcMap), Spatial Analyst</div>
+      <div><strong>Software</strong>ArcGIS Pro, Spatial Analyst</div>
       <div><strong>Data</strong>Annual &amp; monthly vector, raster, and tabular time series</div>
     </div>
   </div>
@@ -65,20 +65,20 @@
     <div class="prose">
       <h2>Overview</h2>
       <p>Eleyele Reservoir has been visibly losing open water to aquatic vegetation for years, but nobody had quantified how fast or where it was happening worst. This assignment set out to do that: build a multi-year, multi-season record of the reservoir's water surface using existing vector boundaries, raster masks, and persistence layers from 2017 through 2025, then turn that record into maps and figures that actually show the trend.</p>
-      <p>The core question was simple — is the reservoir shrinking, and if so, by how much, where, and does it move with the seasons? The answer, confirmed across every output below, is yes: open water has declined sharply, and vegetation has taken its place.</p>
+      <p>The core question was simple - is the reservoir shrinking, and if so, by how much, where, and does it move with the seasons? The answer, confirmed across every output below, is yes: open water has declined sharply, and vegetation has taken its place.</p>
 
       <h2>Data &amp; method</h2>
-      <p>The analysis ran entirely on pre-processed annual and monthly datasets — no field visits were involved. The workflow moved through five phases in ArcMap:</p>
+      <p>The analysis ran entirely on pre-processed annual and monthly datasets - no field visits were involved. The workflow moved through five phases in ArcGIS Pro:</p>
       <ul>
-        <li><strong>Project setup</strong> — organized all nine years of vector boundaries, raster water masks, and persistence layers into a single file geodatabase with a projected coordinate system suitable for accurate area calculations.</li>
-        <li><strong>Shoreline delineation</strong> — converted each year's water polygon into a shoreline using Feature to Line, giving a clean boundary to compare year over year.</li>
-        <li><strong>Change detection</strong> — used overlay analysis (Union/Erase) between consecutive years to isolate exactly which areas converted from open water to vegetation, and vice versa.</li>
-        <li><strong>Persistence classification</strong> — reclassified the stacked annual rasters to show how many of the nine years each pixel was vegetated, separating chronic encroachment from one-off seasonal noise.</li>
-        <li><strong>Seasonal analysis</strong> — split the data by wet and dry season to check whether vegetation cover responds to rainfall, or whether the long-term decline is independent of it.</li>
+        <li><strong>Project setup</strong> - organized all nine years of vector boundaries, raster water masks, and persistence layers into a single file geodatabase with a projected coordinate system suitable for accurate area calculations.</li>
+        <li><strong>Shoreline delineation</strong> - converted each year's water polygon into a shoreline using Feature to Line, giving a clean boundary to compare year over year.</li>
+        <li><strong>Change detection</strong> - used overlay analysis (Union/Erase) between consecutive years to isolate exactly which areas converted from open water to vegetation, and vice versa.</li>
+        <li><strong>Persistence classification</strong> - reclassified the stacked annual rasters to show how many of the nine years each pixel was vegetated, separating chronic encroachment from one-off seasonal noise.</li>
+        <li><strong>Seasonal analysis</strong> - split the data by wet and dry season to check whether vegetation cover responds to rainfall, or whether the long-term decline is independent of it.</li>
       </ul>
 
       <div class="trend-chart">
-        <span class="chart-label">Average monthly open-water surface area (ha) — 2017 to 2025</span>
+        <span class="chart-label">Average monthly open-water surface area (ha) - 2017 to 2025</span>
         <svg viewBox="0 0 640 250" width="100%" role="img" aria-label="Line chart showing average open water area declining from 41.4 hectares in 2017 to 17.1 hectares in 2025, with a partial rebound between 2021 and 2022">
           <!-- gridlines -->
           <g stroke="#C5CBBC" stroke-width="1">
@@ -136,11 +136,11 @@
     <div class="figure">
       <img src="../images/eleyele-encroachment.png" alt="Map of Eleyele Reservoir showing remaining open water in blue and areas converted from water to vegetation (encroached area) in red, 2017 to 2025">
     </div>
-    <div class="figure-cap"><span class="plate-no">PLATE 01</span>Vegetation Encroachment, 2017–2025 — red marks every part of the reservoir that converted from open water to vegetation over the study period. The northern arm and the southern shoreline show the heaviest loss.</div>
+    <div class="figure-cap"><span class="plate-no">PLATE 01</span>Vegetation Encroachment, 2017–2025 - red marks every part of the reservoir that converted from open water to vegetation over the study period. The northern arm and the southern shoreline show the heaviest loss.</div>
 
     <div class="prose">
       <div class="callout alert">
-        The encroachment map is the clearest single result of this study: large, contiguous sections of what was open water in 2017 — particularly the narrow northern channel and the western shoreline — had converted to standing vegetation by 2025.
+        The encroachment map is the clearest single result of this study: large, contiguous sections of what was open water in 2017 - particularly the narrow northern channel and the western shoreline - had converted to standing vegetation by 2025.
       </div>
     </div>
 
@@ -162,17 +162,17 @@
     <div class="figure">
       <img src="../images/eleyele-persistence.png" alt="Map of vegetation persistence at Eleyele Reservoir showing, in a color scale, how many of the nine years (2017-2025) each location was vegetated">
     </div>
-    <div class="figure-cap"><span class="plate-no">PLATE 04</span>Vegetation persistence, 2017–2025 — reclassified to show how many of the nine study years each pixel was vegetated. The darkest blue areas (8 of 9 years) mark chronic, established vegetation rather than seasonal growth.</div>
+    <div class="figure-cap"><span class="plate-no">PLATE 04</span>Vegetation persistence, 2017–2025 - reclassified to show how many of the nine study years each pixel was vegetated. The darkest blue areas (8 of 9 years) mark chronic, established vegetation rather than seasonal growth.</div>
 
     <div class="figure">
       <img src="../images/eleyele-seasonal.png" alt="Side-by-side maps comparing aquatic vegetation distribution in Eleyele Reservoir during wet season and dry season">
     </div>
-    <div class="figure-cap"><span class="plate-no">PLATE 05</span>Seasonal vegetation dynamics — wet season versus dry season. Vegetation cover is slightly more extensive in the dry season, but the difference is small next to the long-term, year-on-year trend.</div>
+    <div class="figure-cap"><span class="plate-no">PLATE 05</span>Seasonal vegetation dynamics - wet season versus dry season. Vegetation cover is slightly more extensive in the dry season, but the difference is small next to the long-term, year-on-year trend.</div>
 
     <div class="prose">
       <h2>Interpretation</h2>
-      <p>Two things stand out from putting these five outputs together. First, the decline in open water is not a seasonal artifact — the persistence map shows large areas vegetated for 7, 8, or all 9 years monitored, which only a long-term process like sediment buildup, nutrient loading, or reduced flow could produce. Second, the seasonal comparison shows the wet/dry difference is real but minor compared to the year-on-year trend, meaning whatever is driving the encroachment isn't simply rainfall.</p>
-      <p>From a methods standpoint, this project was a good exercise in working entirely from time-series raster and vector data without any new image classification — the emphasis was on change detection, reclassification, and getting the cartographic outputs to actually communicate a trend rather than just show one year of data in isolation.</p>
+      <p>Two things stand out from putting these five outputs together. First, the decline in open water is not a seasonal artifact - the persistence map shows large areas vegetated for 7, 8, or all 9 years monitored, which only a long-term process like sediment buildup, nutrient loading, or reduced flow could produce. Second, the seasonal comparison shows the wet/dry difference is real but minor compared to the year-on-year trend, meaning whatever is driving the encroachment isn't simply rainfall.</p>
+      <p>This project was a good exercise in working with time-series raster and vector data without doing any new image classification. The focus was on change detection, reclassification, and making the cartographic outputs show a trend clearly instead of just mapping one year at a time.</p>
 
       <h2>Data &amp; downloads</h2>
       <p>Supporting tables behind the figures above:</p>
